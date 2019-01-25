@@ -1,0 +1,856 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+units:
+  - target:
+    - dir: messaging/target/classes
+      file: org/axonframework/common/jdbc/ConnectionWrapperFactory.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/jdbc/ConnectionWrapperFactory.java
+  - target:
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/command/AxonServerCommandBus.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/command/AxonServerCommandBus.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/ErrorMessage.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/ErrorMessage.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/AxonServerConfiguration.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/AxonServerConfiguration.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/AxonServerConnectionManager.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/AxonServerConnectionManager.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/DispatchInterceptors.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/DispatchInterceptors.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/ErrorCode.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/ErrorCode.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/ContextAddingInterceptor.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/ContextAddingInterceptor.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/ExceptionSerializer.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/ExceptionSerializer.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/FlowControllingStreamObserver.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/FlowControllingStreamObserver.java
+    # Child of AxonServerCommandBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/TokenAddingInterceptor.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/TokenAddingInterceptor.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/CommandBus.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/CommandBus.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/CommandCallback.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/CommandCallback.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/CommandMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/CommandMessage.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/GenericCommandResultMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/GenericCommandResultMessage.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/distributed/CommandDispatchException.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/distributed/CommandDispatchException.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/distributed/RoutingStrategy.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/distributed/RoutingStrategy.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/AxonThreadFactory.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/AxonThreadFactory.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/Registration.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/Registration.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/MessageDispatchInterceptor.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/MessageDispatchInterceptor.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/MessageHandler.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/MessageHandler.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/MessageHandlerInterceptor.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/MessageHandlerInterceptor.java
+    # Child of AxonServerCommandBus.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/Serializer.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/Serializer.java
+  - target:
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/AxonServerQueryBus.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/AxonServerQueryBus.java
+    # Child of AxonServerQueryBus.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QuerySubscription.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QuerySubscription.java
+    # Child of AxonServerQueryBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/command/AxonServerRegistration.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/command/AxonServerRegistration.java
+    # Child of AxonServerQueryBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/subscription/AxonServerSubscriptionQueryResult.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/subscription/AxonServerSubscriptionQueryResult.java
+    # Child of AxonServerQueryBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/subscription/DeserializedResult.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/subscription/DeserializedResult.java
+    # Child of AxonServerQueryBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/subscription/SubscriptionMessageSerializer.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/subscription/SubscriptionMessageSerializer.java
+    # Child of AxonServerQueryBus.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/subscription/SubscriptionQueryRequestTarget.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/subscription/SubscriptionQueryRequestTarget.java
+  - target:
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/annotation/AnnotatedHandlerInspector.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/annotation/AnnotatedHandlerInspector.java
+  - target:
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/subscription/SubscriptionMessageSerializer.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/subscription/SubscriptionMessageSerializer.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QueryRequest.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QueryRequest.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QueryResponse.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QueryResponse.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QueryUpdate.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QueryUpdate.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QueryUpdateComplete.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QueryUpdateComplete.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QueryUpdateCompleteExceptionally.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QueryUpdateCompleteExceptionally.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/SubscriptionQuery.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/SubscriptionQuery.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/SubscriptionQueryResponse.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/SubscriptionQueryResponse.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/GrpcBackedResponseMessage.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/GrpcBackedResponseMessage.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/GrpcMetaDataConverter.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/GrpcMetaDataConverter.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/GrpcMetadataSerializer.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/GrpcMetadataSerializer.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/GrpcObjectSerializer.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/GrpcObjectSerializer.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/util/GrpcPayloadSerializer.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/util/GrpcPayloadSerializer.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/query/QueryProviderOutbound.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/query/QueryProviderOutbound.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/QueryResponseMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/QueryResponseMessage.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/SubscriptionQueryMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/SubscriptionQueryMessage.java
+    # Child of SubscriptionMessageSerializer.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/SubscriptionQueryUpdateMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/SubscriptionQueryUpdateMessage.java
+  - target:
+    - dir: config/target/classes
+      file: org/axonframework/config/EventProcessingModule.class
+      sourceDir: config/src/main/java
+      sourceFile: org/axonframework/config/EventProcessingModule.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/AxonConfigurationException.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/AxonConfigurationException.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/transaction/NoTransactionManager.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/transaction/NoTransactionManager.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/transaction/TransactionManager.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/transaction/TransactionManager.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/async/SequencingPolicy.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/async/SequencingPolicy.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/async/SequentialPerAggregatePolicy.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/async/SequentialPerAggregatePolicy.java
+    # Child of EventProcessingModule.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/saga/repository/SagaStore.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/saga/repository/SagaStore.java
+    # Child of EventProcessingModule.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/saga/repository/inmemory/InMemorySagaStore.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/saga/repository/inmemory/InMemorySagaStore.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/tokenstore/TokenStore.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/tokenstore/TokenStore.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/tokenstore/inmemory/InMemoryTokenStore.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/tokenstore/inmemory/InMemoryTokenStore.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/Message.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/Message.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/StreamableMessageSource.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/StreamableMessageSource.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/SubscribableMessageSource.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/SubscribableMessageSource.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/interceptors/CorrelationDataInterceptor.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/interceptors/CorrelationDataInterceptor.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/unitofwork/RollbackConfiguration.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/unitofwork/RollbackConfiguration.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/unitofwork/RollbackConfigurationType.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/unitofwork/RollbackConfigurationType.java
+    # Child of EventProcessingModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/monitoring/MessageMonitor.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/monitoring/MessageMonitor.java
+  - target:
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/ServerConnectorConfigurerModule.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/ServerConnectorConfigurerModule.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/command/AxonServerCommandBus.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/command/AxonServerCommandBus.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/command/CommandPriorityCalculator.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/command/CommandPriorityCalculator.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/event/axon/AxonServerEventStore.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/event/axon/AxonServerEventStore.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/event/axon/EventProcessorInfoConfiguration.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/event/axon/EventProcessorInfoConfiguration.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/AxonServerQueryBus.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/AxonServerQueryBus.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/query/QueryPriorityCalculator.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/query/QueryPriorityCalculator.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/SimpleCommandBus.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/SimpleCommandBus.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/distributed/AnnotationRoutingStrategy.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/distributed/AnnotationRoutingStrategy.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: config/target/classes
+      file: org/axonframework/config/Configuration.class
+      sourceDir: config/src/main/java
+      sourceFile: org/axonframework/config/Configuration.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: config/target/classes
+      file: org/axonframework/config/Configurer.class
+      sourceDir: config/src/main/java
+      sourceFile: org/axonframework/config/Configurer.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: config/target/classes
+      file: org/axonframework/config/ConfigurerModule.class
+      sourceDir: config/src/main/java
+      sourceFile: org/axonframework/config/ConfigurerModule.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/LoggingQueryInvocationErrorHandler.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/LoggingQueryInvocationErrorHandler.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/QueryBus.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/QueryBus.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/QueryInvocationErrorHandler.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/QueryInvocationErrorHandler.java
+    # Child of ServerConnectorConfigurerModule.class
+    - dir: messaging/target/classes
+      file: org/axonframework/queryhandling/SimpleQueryBus.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/queryhandling/SimpleQueryBus.java
+  - target:
+    - dir: spring-boot-autoconfigure/target/classes
+      file: org/axonframework/springboot/autoconfig/JpaEventStoreAutoConfiguration.class
+      sourceDir: spring-boot-autoconfigure/src/main/java
+      sourceFile: org/axonframework/springboot/autoconfig/JpaEventStoreAutoConfiguration.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/jdbc/PersistenceExceptionResolver.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/jdbc/PersistenceExceptionResolver.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/jpa/EntityManagerProvider.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/jpa/EntityManagerProvider.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/EventStorageEngine.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/EventStorageEngine.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/EventStore.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/EventStore.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/jpa/JpaEventStorageEngine.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/jpa/JpaEventStorageEngine.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: spring/target/classes
+      file: org/axonframework/spring/config/AxonConfiguration.class
+      sourceDir: spring/src/main/java
+      sourceFile: org/axonframework/spring/config/AxonConfiguration.java
+    # Child of JpaEventStoreAutoConfiguration.class
+    - dir: spring-boot-autoconfigure/target/classes
+      file: org/axonframework/springboot/util/RegisterDefaultEntities.class
+      sourceDir: spring-boot-autoconfigure/src/main/java
+      sourceFile: org/axonframework/springboot/util/RegisterDefaultEntities.java
+  - target:
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/event/axon/AxonServerEventStore.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/event/axon/AxonServerEventStore.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/Event.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/Event.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/EventWithToken.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/EventWithToken.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/GetAggregateEventsRequest.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/GetAggregateEventsRequest.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/GetAggregateSnapshotsRequest.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/GetAggregateSnapshotsRequest.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/GetEventsRequest.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/GetEventsRequest.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/QueryEventsRequest.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/QueryEventsRequest.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/QueryEventsResponse.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/QueryEventsResponse.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/event/ReadHighestSequenceNrResponse.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/event/ReadHighestSequenceNrResponse.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/event/AppendEventTransaction.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/event/AppendEventTransaction.java
+    # Child of AxonServerEventStore.class
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/event/AxonServerEventStoreClient.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/event/AxonServerEventStoreClient.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/Assert.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/Assert.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/DomainEventData.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/DomainEventData.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/DomainEventMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/DomainEventMessage.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/EventMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/EventMessage.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/GenericDomainEventMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/GenericDomainEventMessage.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/GlobalSequenceTrackingToken.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/GlobalSequenceTrackingToken.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/TrackedEventData.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/TrackedEventData.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/TrackingEventStream.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/TrackingEventStream.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/TrackingToken.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/TrackingToken.java
+    # Child of AxonServerEventStore.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/EventStreamUtils.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/EventStreamUtils.java
+    # Child of AxonServerEventStore.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/AbstractEventStorageEngine.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/AbstractEventStorageEngine.java
+    # Child of AxonServerEventStore.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/AbstractEventStore.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/AbstractEventStore.java
+    # Child of AxonServerEventStore.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/DomainEventStream.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/DomainEventStream.java
+    # Child of AxonServerEventStore.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/eventstore/EventStoreException.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/eventstore/EventStoreException.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/unitofwork/CurrentUnitOfWork.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/unitofwork/CurrentUnitOfWork.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/SerializedObject.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/SerializedObject.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/upcasting/event/EventUpcaster.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/upcasting/event/EventUpcaster.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/upcasting/event/NoOpEventUpcaster.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/upcasting/event/NoOpEventUpcaster.java
+    # Child of AxonServerEventStore.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/xml/XStreamSerializer.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/xml/XStreamSerializer.java
+  - target:
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/inspection/AbstractChildEntityDefinition.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/inspection/AbstractChildEntityDefinition.java
+    # Child of AbstractChildEntityDefinition.class
+    - dir: messaging/target/classes
+      file: org/axonframework/commandhandling/CommandMessageHandlingMember.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/commandhandling/CommandMessageHandlingMember.java
+    # Child of AbstractChildEntityDefinition.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/AggregateMember.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/AggregateMember.java
+    # Child of AbstractChildEntityDefinition.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/ForwardingMode.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/ForwardingMode.java
+    # Child of AbstractChildEntityDefinition.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/property/Property.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/property/Property.java
+  - target:
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/EventUtils.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/EventUtils.java
+    # Child of EventUtils.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/LazyDeserializingObject.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/LazyDeserializingObject.java
+    # Child of EventUtils.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/SerializedMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/SerializedMessage.java
+    # Child of EventUtils.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/upcasting/event/InitialEventRepresentation.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/upcasting/event/InitialEventRepresentation.java
+    # Child of EventUtils.class
+    - dir: messaging/target/classes
+      file: org/axonframework/serialization/upcasting/event/IntermediateEventRepresentation.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/serialization/upcasting/event/IntermediateEventRepresentation.java
+  - target:
+    - dir: axon-server-connector/target/classes
+      file: org/axonframework/axonserver/connector/processor/grpc/TrackingEventProcessorInfoMessage.class
+      sourceDir: axon-server-connector/src/main/java
+      sourceFile: org/axonframework/axonserver/connector/processor/grpc/TrackingEventProcessorInfoMessage.java
+    # Child of TrackingEventProcessorInfoMessage.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/control/EventProcessorInfo.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/control/EventProcessorInfo.java
+    # Child of TrackingEventProcessorInfoMessage.class
+    - dir: axon-server-connector/target/classes
+      file: io/axoniq/axonserver/grpc/control/PlatformInboundInstruction.class
+      sourceDir: axon-server-connector/target/generated-sources/protobuf/java
+      sourceFile: io/axoniq/axonserver/grpc/control/PlatformInboundInstruction.java
+    # Child of TrackingEventProcessorInfoMessage.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/EventTrackerStatus.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/EventTrackerStatus.java
+    # Child of TrackingEventProcessorInfoMessage.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/TrackingEventProcessor.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/TrackingEventProcessor.java
+  - target:
+    - dir: config/target/classes
+      file: org/axonframework/config/AggregateConfigurer.class
+      sourceDir: config/src/main/java
+      sourceFile: org/axonframework/config/AggregateConfigurer.java
+    # Child of AggregateConfigurer.class
+    - dir: disruptor/target/classes
+      file: org/axonframework/disruptor/commandhandling/DisruptorCommandBus.class
+      sourceDir: disruptor/src/main/java
+      sourceFile: org/axonframework/disruptor/commandhandling/DisruptorCommandBus.java
+    # Child of AggregateConfigurer.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/AggregateFactory.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/AggregateFactory.java
+    # Child of AggregateConfigurer.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/EventSourcingRepository.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/EventSourcingRepository.java
+    # Child of AggregateConfigurer.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/GenericAggregateFactory.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/GenericAggregateFactory.java
+    # Child of AggregateConfigurer.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/NoSnapshotTriggerDefinition.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/NoSnapshotTriggerDefinition.java
+    # Child of AggregateConfigurer.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/SnapshotTriggerDefinition.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/SnapshotTriggerDefinition.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/AggregateAnnotationCommandHandler.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/AggregateAnnotationCommandHandler.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/AnnotationCommandTargetResolver.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/AnnotationCommandTargetResolver.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/CommandTargetResolver.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/CommandTargetResolver.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/GenericJpaRepository.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/GenericJpaRepository.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/Repository.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/Repository.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/inspection/AggregateMetaModelFactory.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/inspection/AggregateMetaModelFactory.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/inspection/AggregateModel.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/inspection/AggregateModel.java
+    # Child of AggregateConfigurer.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/inspection/AnnotatedAggregateMetaModelFactory.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/inspection/AnnotatedAggregateMetaModelFactory.java
+  - target:
+    - dir: disruptor/target/classes
+      file: org/axonframework/disruptor/commandhandling/CommandHandlerInvoker.class
+      sourceDir: disruptor/src/main/java
+      sourceFile: org/axonframework/disruptor/commandhandling/CommandHandlerInvoker.java
+    # Child of CommandHandlerInvoker.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/Aggregate.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/Aggregate.java
+    # Child of CommandHandlerInvoker.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/AggregateNotFoundException.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/AggregateNotFoundException.java
+    # Child of CommandHandlerInvoker.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/AggregateScopeDescriptor.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/AggregateScopeDescriptor.java
+    # Child of CommandHandlerInvoker.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/ConflictingAggregateVersionException.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/ConflictingAggregateVersionException.java
+    # Child of CommandHandlerInvoker.class
+    - dir: modelling/target/classes
+      file: org/axonframework/modelling/command/RepositoryProvider.class
+      sourceDir: modelling/src/main/java
+      sourceFile: org/axonframework/modelling/command/RepositoryProvider.java
+    # Child of CommandHandlerInvoker.class
+    - dir: messaging/target/classes
+      file: org/axonframework/common/caching/Cache.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/common/caching/Cache.java
+    # Child of CommandHandlerInvoker.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/AggregateCacheEntry.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/AggregateCacheEntry.java
+    # Child of CommandHandlerInvoker.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/EventSourcedAggregate.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/EventSourcedAggregate.java
+    # Child of CommandHandlerInvoker.class
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/SnapshotTrigger.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/SnapshotTrigger.java
+    # Child of CommandHandlerInvoker.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/ScopeDescriptor.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/ScopeDescriptor.java
+    # Child of CommandHandlerInvoker.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/annotation/ClasspathHandlerDefinition.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/annotation/ClasspathHandlerDefinition.java
+    # Child of CommandHandlerInvoker.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/annotation/HandlerDefinition.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/annotation/HandlerDefinition.java
+    # Child of CommandHandlerInvoker.class
+    - dir: messaging/target/classes
+      file: org/axonframework/messaging/annotation/ParameterResolverFactory.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/messaging/annotation/ParameterResolverFactory.java
+  - target:
+    - dir: eventsourcing/target/classes
+      file: org/axonframework/eventsourcing/EventStreamUtils.class
+      sourceDir: eventsourcing/src/main/java
+      sourceFile: org/axonframework/eventsourcing/EventStreamUtils.java
+    # Child of EventStreamUtils.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/EventData.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/EventData.java
+    # Child of EventStreamUtils.class
+    - dir: messaging/target/classes
+      file: org/axonframework/eventhandling/GenericTrackedDomainEventMessage.class
+      sourceDir: messaging/src/main/java
+      sourceFile: org/axonframework/eventhandling/GenericTrackedDomainEventMessage.java
